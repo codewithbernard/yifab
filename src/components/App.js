@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from './Header';
 import Search from './Search';
+import RestaurantList from './RestaurantList';
 
 class App extends Component {
   render() {
@@ -8,6 +9,7 @@ class App extends Component {
       <div className="container">
         <Header />
         <Search />
+        <RestaurantList />
       </div>
     );
   }

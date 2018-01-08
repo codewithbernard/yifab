@@ -4,19 +4,27 @@ import * as actions from '../actions'
 
 class Search extends Component {
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      city: ''
+    }
+  }
+
   handleSubmit(event) {
     event.preventDefault();
-    console.log('Submiting');
+    this.props.fetchRestaurants(this.state.city);
   }
 
   render() {
     return(
       <div className="row">
-        <form className="col s12" onSubmit={e => this.handleSubmit(e)}>
+        <form className="col s12" onSubmit={e => {this.handleSubmit.bind(this);this.handleSubmit(e)}}>
           <div className="row">
             <div className="input-field col s4 offset-s3">
               <i className="material-icons prefix">location_city</i>
-              <input id="postalCode" type="text" className="validate"></input>
+              <input onChange={e => this.setState({city: e.target.value})} value={this.state.city} id="postalCode" type="text" className="validate"></input>
               <label htmlFor="postalCode">Postal Code</label>
             </div>
             <div className="input-field col s2">
