@@ -14,6 +14,7 @@ class Search extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    this.props.initLoading();
     this.props.fetchRestaurants(this.state.city);
   }
 
@@ -24,8 +25,7 @@ class Search extends Component {
           <div className="row">
             <div className="input-field col s4 offset-s3">
               <i className="material-icons prefix">location_city</i>
-              <input onChange={e => this.setState({city: e.target.value})} value={this.state.city} id="postalCode" type="text" className="validate"></input>
-              <label htmlFor="postalCode">Postal Code</label>
+              <input placeholder="City" onChange={e => this.setState({city: e.target.value})} value={this.state.city} id="city" type="text" className="validate"></input>
             </div>
             <div className="input-field col s2">
               <button type="submit" className="waves-effect waves-light btn">search</button>

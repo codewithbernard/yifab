@@ -2,7 +2,11 @@
   "name": "yefab",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://api.yelp.com",
+  "proxy": {
+    "/api/*": {
+      "target": "http://localhost:5000"
+    }
+  },
   "dependencies": {
     "axios": "^0.17.1",
     "connect": "^3.6.5",
